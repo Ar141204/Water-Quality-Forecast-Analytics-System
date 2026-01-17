@@ -33,7 +33,7 @@ graph TD
     Data -->|Loaded by| Python[Python Subprocess]
     Client[Web Browser] -->|HTTP Requests| Server[Node.js + Express]
     Server -->|Spawns| Python
-    Python -->|Runs| Ensemble[Ensemble Model (Prophet/ARIMA/LSTM)]
+    Python -->|Runs| Ensemble["Ensemble Model (Prophet/ARIMA/LSTM)"]
     Ensemble -->|Returns JSON| Server
     Server -->|Renders| View[EJS Templates / Chart.js]
 ```
