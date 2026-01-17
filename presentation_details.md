@@ -15,62 +15,62 @@ This document outlines the structure and content for a presentation (PPT) based 
     - Climate change (Temperature rise, erratic Precipitation) exacerbates the issue.
     - Lack of accessible tools for policymakers to simulate "What-If" scenarios.
 
-## Slide 3: The Solution
-- **Overview:** A web-based decision support system that predicts future water quality trends.
-- **Key Capabilities:**
-    - **Forecast:** Predicts Chlorophyll-a levels for months ahead.
-    - **Simulate:** Allows users to adjust weather parameters to see impacts (Digital Twin concept).
-    - **Analyze:** Identifies risky districts and historical anomalies.
+## Slide 3: Project Roadmap (Phased Execution)
+- **Phase 1 (60% Completion):** System Foundation & Data Pipeline.
+    - Goal: Establish data flow from Satellite to Web App.
+    - Status: Completed.
+- **Phase 2 (40% Completion):** Predictive Intelligence & Simulation.
+    - Goal: Integrate Ensemble Logic and "What-If" Analysis.
+    - Status: Completed.
 
-## Slide 4: System Architecture
-- **Data Pipeline (Google Earth Engine):**
-    - **Source:** Satellite imagery from NASA (MODIS) and UCSB (CHIRPS).
-    - **Process:** Cloud-based extraction of Chlorophyll, Temperature, and Rainfall data.
-    - **Output:** Processed CSV datasets fed into the Ensemble Model.
-- **Frontend:**
-    - HTML/CSS (Custom "Glassmorphism" Design).
-    - EJS Templating for dynamic views.
-    - Chart.js for interactive visualization (Leaderboards, Sparklines).
-- **Backend:**
-    - **Node.js & Express:** Handles API requests and serves the app.
-    - **Python Bridge:** `child_process` executes Python scripts for heavy computation.
-- **Data Engine:**
-    - **Pandas:** Data manipulation.
-    - **Ensemble Model:** Combines Prophet, ARIMA, and LSTM.
+---
 
-## Slide 5: Data Acquisition via Satellite (New)
-- **Tool:** Google Earth Engine (GEE).
-- **Datasets Used:**
-    - *Chlorophyll-a:* NASA MODIS-Aqua (Ocean Color).
-    - *Temperature:* MODIS Land Surface Temperature.
-    - *Precipitation:* CHIRPS Daily (UCSB).
-- **Workflow:**
-    1. Define ROI (Region of Interest) = Tamil Nadu.
-    2. Filter by Date (2022-2025).
-    3. Export Monthly Composites to drive the ML training.
+# PHASE 1: FOUNDATION & DATA (60%)
 
-## Slide 6: The "Ensemble" Methodology (Core Innovation)
-*Why settle for one model? We use three.*
-1.  **Prophet (Meta):** Handles seasonality and trends effectively.
-2.  **ARIMA (Statistical):** Captures linear autocorrelations.
-3.  **LSTM (Deep Learning):** Captures complex non-linear patterns.
-- **Final Output:** The average of all three models ensures robustness and reduces variance.
-- **Uncertainty Quantification:** We provide confidence intervals (Upper/Lower bounds) to show reliability.
+## Slide 4: Phase 1 - Architecture & Data Pipeline
+- **Objective:** Build the infrastructure to handle Satellite Data.
+- **Data Acquisition (Google Earth Engine):**
+    - **Source:** NASA MODIS (Chlorophyll), MOD11A2 (Temp), CHIRPS (Precip).
+    - **Pipeline:** Cloud-based extraction -> Pre-processing -> CSV Export.
+    - **Status:** **DONE**. Use standard datasets for training.
+- **Web Stack Setup:**
+    - **Backend:** Node.js + Express Server.
+    - **Frontend:** Responsive EJS Templates.
+    - **Bridge:** Establishing `child_process` communication with Python.
 
-## Slide 6: "What-If" Simulation Engine
-*Turn static data into dynamic insights.*
+## Slide 5: Phase 1 - Basic Visualization
+- **Deliverable:** A dashboard capable of displaying *Historical Data*.
+- **Features:**
+    - Interactive Maps (Leaflet/Mapbox).
+    - Basic Time-series charts (Chart.js) showing past trends (2022-2025).
+    - User Authentication & District Selection.
+
+---
+
+# PHASE 2: INTELLIGENCE & SIMULATION (40%)
+
+## Slide 6: Phase 2 - The "Ensemble" Methodology
+*Moving from Monitoring to Prediction.*
+- **Core Innovation:** Combining 3 Models for robustness.
+    1.  **Prophet:** Seasonality master.
+    2.  **ARIMA:** Statistical baseline.
+    3.  **LSTM:** Neural Network for non-linear patterns.
+- **Uncertainty Quantification:** Calculation of Upper/Lower bounds for confidence.
+
+## Slide 7: Phase 2 - "What-If" Simulation Engine
+*The "Digital Twin" Capability.*
 - **Mechanism:**
-    - Users modify **Precipitation** (e.g., +20% rain) and **Temperature** (e.g., +2°C).
-    - The system calculates "Feature Importance" (Correlation).
-    - It adjusts the baseline forecast based on the weather impact logic.
-- **Use Case:** Predicting Algal Blooms during a hypothetical heatwave or flash flood.
+    - Users modify **Precipitation** and **Temperature** sliders.
+    - System calculates "Feature Importance" (Correlation).
+    - Adjusts forecasts based on weather impact logic.
+- **Value:** Helps prepare for Heatwaves or Flash Floods.
 
-## Slide 7: Analytics & Leaderboard
-- **Risk Profiling:** Categorizes districts as Safe, Warning, or Critical.
-- **Anomaly Detection:** Flagging historical events (Heatwaves, Flash Floods) where data spiked beyond 1.5x Standard Deviation.
-- **Leaderboard:** Ranking districts by Average Chlorophyll levels to prioritize interventions.
+## Slide 8: Phase 2 - Advanced Analytics
+- **Leaderboard:** Ranking 38 Districts by Risk.
+- **Anomaly Detection:** Flagging historical events (spikes > 1.5x Std Dev).
+- **Final UI Polish:** Glassmorphism effects, responsive mobile view.
 
-## Slide 8: Technology Stack Summary
+## Slide 9: Technology Stack Summary
 - **Languages:** JavaScript (Node.js), Python 3.x
 - **Libraries (Python):** TensorFlow (Keras), Prophet, Statsmodels, Scikit-learn, Pandas.
 - **Libraries (JS):** Express, EJS, Dotenv.
