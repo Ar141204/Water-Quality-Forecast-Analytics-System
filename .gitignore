@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.pyc
+
+# Environment & Logs
+.env
+*.log
+npm-debug.log*
+
+# OS & Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Checkpoints
+.ipynb_checkpoints/
+
+# Optional: Ignore large data exports if generated locally
+GEE_WaterQuality/
