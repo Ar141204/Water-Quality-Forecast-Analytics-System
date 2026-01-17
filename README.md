@@ -25,6 +25,20 @@ The core innovation is the **Ensemble Model**, which averages predictions from *
     *   **Anomaly Detection:** Highlights historical extreme events (Heatwaves, Flash Floods).
 *   **📱 Modern UI/UX:** Responsive Glassmorphism design built with EJS and CSS.
 
+## 🗺️ Development Roadmap
+
+### Phase 1: Foundation & Infrastructure (60%)
+*   **Goal:** Establish data pipelines and web architecture.
+*   ✅ **Google Earth Engine Integration:** Automated extraction of Chlorophyll, Temp, and Rainfall.
+*   ✅ **Data Pipeline:** Pre-processing and cleaning of satellite datasets.
+*   ✅ **Web Dashboard:** Responsive UI with Node.js/Express backend.
+
+### Phase 2: Intelligence & Simulation (40%)
+*   **Goal:** Implement AI predictions and decision support.
+*   ✅ **Ensemble Forecasting:** Integration of Prophet + ARIMA + LSTM.
+*   ✅ **"What-If" Simulation:** Real-time impact analysis of weather changes.
+*   ✅ **Advanced Analytics:** Anomaly detection and District Leaderboards.
+
 ## 🏗️ Architecture
 
 ```mermaid
