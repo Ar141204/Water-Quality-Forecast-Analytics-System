@@ -1,6 +1,6 @@
 # 🌊 Water Quality Forecast & Analytics System
 
-> **Intelligent Forecasting for Tamil Nadu Districts using Ensemble Learning (Prophet + ARIMA + LSTM)**
+> **Intelligent Forecasting for Tamil Nadu Districts using Ensemble Learning (Prophet + ARIMA + Neural Network)**
 
 ![Project Status](https://img.shields.io/badge/Status-Active-success)
 ![Node Version](https://img.shields.io/badge/Node.js-v18%2B-green)
@@ -12,12 +12,12 @@
 
 This project is a comprehensive **Water Quality Monitoring and Forecasting System** designed to predict **Chlorophyll-a** levels and assess environmental risks across districts in Tamil Nadu. It leverages **Google Earth Engine** for satellite data acquisition and combines it with a robust **Node.js/Express web dashboard**.
 
-The core innovation is the **Ensemble Model**, which averages predictions from **Prophet**, **ARIMA**, and **LSTM** (Deep Learning) to deliver highly accurate forecasts with uncertainty quantification.
+The core innovation is the **Ensemble Model**, which averages predictions from **Prophet**, **ARIMA**, and a **Neural Network (LSTM Proxy)** to deliver highly accurate forecasts with uncertainty quantification.
 
 ## ✨ Key Features
 
 *   **🌍 Satellite-Driven Data:** Utilizes **Google Earth Engine (GEE)** to harvest real-time environmental data (MODIS Chlorophyll, CHIRPS Precipitation).
-*   **🔮 Hybrid Ensemble Forecasting:** Combines statistical (ARIMA), regression (Prophet), and deep learning (LSTM) models for superior accuracy.
+*   **🔮 Hybrid Ensemble Forecasting:** Combines statistical (ARIMA), regression (Prophet), and deep learning proxy (MLP Neural Network) models for superior accuracy.
 *   **🎛️ "What-If" Simulation Engine:** Evaluate the impact of climate change by adjusting **Precipitation** and **Temperature** sliders to see how they affect future water quality.
 *   **📊 Interactive Analytics Dashboard:**
     *   **Leaderboard:** Rank districts by contamination levels.
@@ -35,7 +35,7 @@ The core innovation is the **Ensemble Model**, which averages predictions from *
 
 ### Phase 2: Intelligence & Simulation (40%)
 *   **Goal:** Implement AI predictions and decision support.
-*   ✅ **Ensemble Forecasting:** Integration of Prophet + ARIMA + LSTM.
+*   ✅ **Ensemble Forecasting:** Integration of Prophet + ARIMA + Neural Network.
 *   ✅ **"What-If" Simulation:** Real-time impact analysis of weather changes.
 *   ✅ **Advanced Analytics:** Anomaly detection and District Leaderboards.
 
@@ -47,7 +47,7 @@ graph TD
     Data -->|Loaded by| Python[Python Subprocess]
     Client[Web Browser] -->|HTTP Requests| Server[Node.js + Express]
     Server -->|Spawns| Python
-    Python -->|Runs| Ensemble["Ensemble Model (Prophet/ARIMA/LSTM)"]
+    Python -->|Runs| Ensemble["Ensemble Model (Prophet/ARIMA/MLP)"]
     Ensemble -->|Returns JSON| Server
     Server -->|Renders| View[EJS Templates / Chart.js]
 ```
@@ -83,7 +83,7 @@ graph TD
         ```bash
         pip install -r requirements.txt
         ```
-    *   *Note:* Ensure you have `tensorflow`, `prophet`, `pandas`, `statsmodels`, and `scikit-learn` installed.
+    *   *Note:* Ensure you have `prophet`, `pandas`, `statsmodels`, and `scikit-learn` installed.
 
 ### Running the Application
 
@@ -116,6 +116,15 @@ The application allows you to simulate hypothetical scenarios to test resilience
     *   *Precipitation Factor:* e.g., Set to `1.2x` to simulate 20% more rain.
     *   *Temperature Bias:* e.g., Set to `+2.0°C` to simulate global warming.
 4.  **Run Forecast:** The system calculates the correlation-weighted impact of these weather changes on the Chlorophyll baseline.
+
+### ⚡ Performance Optimization & Caching
+To ensure instant response times during user interactions:
+*   **Neural Network Proxy:** The deep learning model uses a fast Multi-Layer Perceptron (MLP) as a proxy, completely avoiding TensorFlow's heavy CPU/RAM startup overhead.
+*   **Forecast Caching:** Baseline forecasts (before weather modifications) are calculated once and stored in `dataset/forecast_cache.json`. Slider adjustments run instantly (under 0.05 seconds) using cached data.
+*   **Cache Precomputation:** You can pre-generate baseline forecasts for all 37 districts by running:
+    ```bash
+    python precompute_cache.py
+    ```
 
 ## 👥 Authors
 

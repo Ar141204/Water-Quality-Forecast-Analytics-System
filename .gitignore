@@ -19,3 +19,14 @@ npm-debug.log*
 
 # Optional: Ignore large data exports if generated locally
 GEE_WaterQuality/
+
+# Virtual Environments
+.venv/
+env/
+ENV/
+
+# Python test/analysis caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+

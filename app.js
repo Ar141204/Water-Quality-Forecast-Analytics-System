@@ -26,6 +26,8 @@ const tamil_nadu_districts = [
   "Vellore", "Viluppuram", "Virudhunagar"
 ];
 
+const pythonPath = process.platform === 'win32' ? './venv/Scripts/python.exe' : './venv/bin/python';
+
 // Home page
 app.get('/', function (req, res) {
   app_config['districts'] = tamil_nadu_districts;
@@ -55,7 +57,7 @@ app.get('/forecast', (req, res) => {
 
   console.log('Executing Forecast:', args);
 
-  execFile('./venv/bin/python', args, { maxBuffer: 1024 * 1024 * 10 }, (error, stdout, stderr) => {
+  execFile(pythonPath, args, { maxBuffer: 1024 * 1024 * 10 }, (error, stdout, stderr) => {
     if (error) {
       console.error('Error executing Python script:', error);
       console.error('stderr:', stderr);
@@ -81,7 +83,7 @@ app.get('/forecast', (req, res) => {
 });
 
 app.get('/api/analytics', (req, res) => {
-  execFile('./venv/bin/python', ['get_analytics.py'], (error, stdout, stderr) => {
+  execFile(pythonPath, ['get_analytics.py'], (error, stdout, stderr) => {
     if (error) {
       console.error('Error executing Analytics script:', error);
       return res.status(500).json({ error: 'Failed to generate analytics' });
