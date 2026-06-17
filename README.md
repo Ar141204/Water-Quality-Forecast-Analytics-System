@@ -8,6 +8,8 @@
 ![GEE](https://img.shields.io/badge/Data-Google%20Earth%20Engine-green)
 ![License](https://img.shields.io/badge/License-MIT-orange)
 
+> 🔗 **Live Demo:** [water-quality-intelligence.onrender.com](https://water-quality-intelligence.onrender.com/)
+
 ## 📋 Overview
 
 This project is a comprehensive **Water Quality Monitoring and Forecasting System** designed to predict **Chlorophyll-a** levels and assess environmental risks across districts in Tamil Nadu. It leverages **Google Earth Engine** for satellite data acquisition and combines it with a robust **Node.js/Express web dashboard**.
@@ -94,8 +96,8 @@ graph TD
     *   *Tip:* The server will automatically use the Python environment in `./venv`.
 
 2.  **Access the Dashboard:**
-    Open your browser and navigate to:
-    `http://localhost:3000`
+    - **Live Deployment:** [water-quality-intelligence.onrender.com](https://water-quality-intelligence.onrender.com/)
+    - **Local Development:** Open your browser and navigate to `http://localhost:3000`
 
 ## 📂 Project Structure
 
